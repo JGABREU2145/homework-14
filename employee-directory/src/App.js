@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import Header from "./components/Header/Header"
+import Info from "./components/Info/Info";
+import InfoContainer from "./components/InfoContainer/InfoContainer";
+import employees from "./employees.json";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+ 
+  state = {
+    employees
+  };
+
+  filterEmployee = id => {
+    
+    const employees = this.state.employees.filter(employee => employee.id !== id);
+    
+    this.setState({ employees });
+  };
+  
+  render() {
+    return (
+      <InfoContainer>
+        <Header>Employee Directory</Header>
+        {this.state.employees.map(employee => (
+          <Info
+            filterEmployee={this.filterEmployee}
+            id={employee.userId}
+            key={employee.userId}
+            name={employee.name} 
+            image={employee.image}
+            phone={employee.phone}
+            email={employee.email}
+            dob={employee.dob}
+          />
+        ))}
+      </InfoContainer>
+    );
+  }
 }
 
 export default App;
