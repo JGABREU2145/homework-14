@@ -1,5 +1,5 @@
 .title {
-    height: 100px;
+    height: 10%;
     width: 100%;
     text-align: center;
     padding: 1% ;
@@ -8,4 +8,10 @@
     margin-bottom: 50px;
     background-color: #2A77AE;
   }
+
+  h3 {
+      padding-top: 5px;
+  }
+
+  
   

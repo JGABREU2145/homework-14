@@ -54,9 +54,11 @@ class App extends Component {
     return (
       <div>
       <InfoContainer>
-        <Header>Employee Directory</Header>
-        <Search handleInputChange={this.filterEmployees}/>
-        <Sort handleInputChange={this.sortEmployees}/>
+        <Header>Employee Directory
+        <Search handleInputChange={this.filterEmployees} />        
+        <h3>Filter by Name: <span><Sort handleInputChange={this.sortEmployees}/></span></h3>        
+        
+        </Header>
         {this.state.filteredEmployees.map(employee => (
           <Info
             id={employee.userId}

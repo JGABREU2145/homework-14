@@ -28,7 +28,9 @@ class Search extends Component {
                 type="text"
                 value={this.state.nameFilter}
                 onChange={this.handleInputChange}
-                id="Search"></input>
+                id="Search"
+                placeholder="Search for Employees">                    
+                </input>                
             </div>
         )
     }
